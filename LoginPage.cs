@@ -2,6 +2,7 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 
+namespace appiumtest;
 public class LoginPage
 {
     private AndroidDriver _driver;

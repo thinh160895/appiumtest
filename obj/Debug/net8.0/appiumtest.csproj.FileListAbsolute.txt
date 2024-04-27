@@ -106,3 +106,4 @@ c:\Users\Admin\appiumtest\obj\Debug\net8.0\refint\appiumtest.dll
 c:\Users\Admin\appiumtest\obj\Debug\net8.0\appiumtest.pdb
 c:\Users\Admin\appiumtest\obj\Debug\net8.0\appiumtest.genruntimeconfig.cache
 c:\Users\Admin\appiumtest\obj\Debug\net8.0\ref\appiumtest.dll
+C:\Users\Admin\appiumtest\obj\Debug\net8.0\appiumtest.sourcelink.json

@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.MultiTouch;
 using System.Drawing;
 
+namespace appiumtest;
 public class SwipeHandler
 {
     private IWebDriver _driver;
