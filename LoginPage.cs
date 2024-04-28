@@ -2,7 +2,8 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 
-namespace appiumtest;
+namespace appiumtest
+{
 public class LoginPage
 {
     private AndroidDriver _driver;
@@ -17,7 +18,6 @@ public class LoginPage
             AutomationName = AutomationName.AndroidUIAutomator2,
             PlatformName = "Android",
             DeviceName = "Samsung Galaxy S10",
-            // U = "R39M10FTLFM",
         };
 
         driverOptions.AddAdditionalAppiumOption("appPackage", "com.dichoisolution.redi.qa");
@@ -36,12 +36,13 @@ public class LoginPage
 
         try
         {
-        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
         catch (Exception ex)
         {
-        throw new Exception("Element not found", ex);
+            throw new Exception("Element not found", ex);
         }
+        // Khởi tạo SwipeHandler
         _swipeHandler = new SwipeHandler(_driver);
     }
 
@@ -52,11 +53,11 @@ public class LoginPage
     }
 
     [Test]
-    [Obsolete]
     public void TestOpenApp()
     {
         _driver.StartActivity("com.dichoisolution.redi.qa", "com.dichoisolution.redi.MainActivity");
-        _swipeHandler.Swipe(3);
+        _swipeHandler.Swipe("LEFT", 3);
         _driver.FindElement(MobileBy.AccessibilityId("Next")).Click();
     }
+}
 }
