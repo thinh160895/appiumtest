@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\appiumtest\\appiumtest.csproj": {}
+    "c:\\Users\\Admin\\appiumtest\\appiumtest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\appiumtest\\appiumtest.csproj": {
+    "c:\\Users\\Admin\\appiumtest\\appiumtest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
+        "projectUniqueName": "c:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
         "projectName": "appiumtest",
-        "projectPath": "C:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
+        "projectPath": "c:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\appiumtest\\obj\\",
+        "outputPath": "c:\\Users\\Admin\\appiumtest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"

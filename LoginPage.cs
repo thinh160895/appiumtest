@@ -42,7 +42,6 @@ public class LoginPage
         {
             throw new Exception("Element not found", ex);
         }
-        // Khởi tạo SwipeHandler
         _swipeHandler = new SwipeHandler(_driver);
     }
 

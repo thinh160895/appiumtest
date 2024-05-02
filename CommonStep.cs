@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Interfaces;
 using OpenQA.Selenium.Appium.MultiTouch;
+using OpenQA.Selenium.Interactions;
 using System.Drawing;
 
 namespace appiumtest
@@ -22,88 +23,59 @@ namespace appiumtest
             {
                 // Get the screen size
                 Size ScreenSize = _driver.Manage().Window.Size;
-                double startwidth, startheight, endwidth = 0, endheight = 0;
-                startwidth = ScreenSize.Width / 2;
-                startheight = ScreenSize.Height / 2;
+                double startWidth = ScreenSize.Width / 2;
+                double startHeight = ScreenSize.Height / 2;
+                double endWidth = 0;
+                double endHeight = 0;
                 int border = 10;
 
                 switch (direction.ToUpper())
                 {
                     case "DOWN":
-                        endwidth = ScreenSize.Width / 2;
-                        endheight = ScreenSize.Height - border;
+                        endWidth = ScreenSize.Width / 2;
+                        endHeight = ScreenSize.Height - border;
                         break;
                     case "UP":
-                        endwidth = ScreenSize.Width / 2;
-                        endheight = border;
+                        endWidth = ScreenSize.Width / 2;
+                        endHeight = border;
                         break;
                     case "LEFT":
-                        endwidth = border;
-                        endheight = ScreenSize.Height / 2;
+                        endWidth = border;
+                        endHeight = ScreenSize.Height / 2;
                         break;
                     case "RIGHT":
-                        endwidth = ScreenSize.Width - border;
-                        endheight = ScreenSize.Height / 2;
+                        endWidth = ScreenSize.Width - border;
+                        endHeight = ScreenSize.Height / 2;
                         break;
                 }
+
                 try
                 {
-                    // new TouchAction((IPerformsTouchActions)_driver)
-                    // .Press(startwidth, startheight)
-                    // .MoveTo(endwidth, endheight)
-                    // .Release().Perform();
-                    // // Thread.Sleep(2000);
-                    var SwipeAction = new TouchAction(_driver);
-                    SwipeAction.LongPress(startwidth, startheight)
-                    // .Wait(500)
-                    .MoveTo(endwidth, endheight)
-                    .Release()
-                    .Perform();
+                    var touch = new PointerInputDevice(PointerKind.Touch, "finger");
+                    var sequence = new ActionSequence(touch);
+                    var move = touch.CreatePointerMove(null, (int)startWidth, (int)startHeight, TimeSpan.FromSeconds(1));
+                    var actionPress = touch.CreatePointerDown(MouseButton.Touch);
+                    var pause = touch.CreatePause(TimeSpan.FromMilliseconds(1));
+                    var actionRelease = touch.CreatePointerUp(MouseButton.Touch);
+
+                    sequence.AddAction(move);
+                    sequence.AddAction(actionPress);
+                    sequence.AddAction(pause);
+
+                    // Move to end point
+                    move = touch.CreatePointerMove(null, (int)endWidth, (int)endHeight, TimeSpan.FromSeconds(1));
+                    sequence.AddAction(move);
+
+                    sequence.AddAction(actionRelease);
+
+                    var actionsSeq = new List<ActionSequence> { sequence };
+                    _driver.PerformActions(actionsSeq);
                 }
                 catch(Exception ex)
                 {
-                Console.Write(ex.ToString());
+                    Console.Write(ex.ToString());
                 }
             }
         }
     }
 }
-
-// namespace appiumtest;
-// public class SwipeHandler
-// {
-//     private IWebDriver _driver;
-//     public SwipeHandler(IWebDriver driver)
-//     {
-//         _driver = driver;
-//     }
-//     [Obsolete]
-//     public void Swipe(int times)
-//     {
-//         for (int i = 0; i < times; i++)
-//         {
-//             // Get the screen size
-//             Size screenSize = _driver.Manage().Window.Size;
-
-//             // Calculate the start and end points of the swipe
-//             int startX = (int)(screenSize.Width * 0.8); 
-//             int endX = (int)(screenSize.Width * 0.2);   
-//             int y = screenSize.Height / 2;             
-
-//             // Perform the swipe
-//             try{
-//             TouchAction Swipe = new TouchAction((OpenQA.Selenium.Appium.Interfaces.IPerformsTouchActions)_driver);
-//             Swipe.Press(startX, y)
-//             .MoveTo(endX, y)
-//             .Release().Perform();
-//             // Thread.Sleep(2000);
-//             }
-//             catch(Exception ex)
-//             {
-//             Console.Write(ex.ToString());
-//             }
-//             // Task.Delay(2000).Wait();
-
-//         }
-//     }
-// }

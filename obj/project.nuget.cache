@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "leH0dxMJcJbk4aqMXpjevErOW7vHG+U+38MCht2/78FCk9F8oNM9dlDNrlT9ImnomYyNv3zqVpLs7F6ZShxEDw==",
+  "dgSpecHash": "d277eWb7EsV/JT56JjhQIWbqj75JIJUTl6aEJ+A4wu3drX66knyEgb2P9g+Qx2xocBimTMSz+yy9/8srzNENQQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
+  "projectFilePath": "c:\\Users\\Admin\\appiumtest\\appiumtest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\appium.webdriver\\5.0.0-rc.8\\appium.webdriver.5.0.0-rc.8.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
